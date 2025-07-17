@@ -3,10 +3,10 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import {ConnectionProvider} from './components/ConnectionProvider';
-import {AuthorizationProvider} from './components/AuthorizationProvider';
+import {ConnectionProvider} from './components/providers/ConnectionProvider';
+import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
 import {clusterApiUrl} from '@solana/web3.js';
-import {MainNavigator} from './navigation/AppNavigator';
+import {AppNavigator} from './navigation/AppNavigator';
 
 // Configure React Query
 const queryClient = new QueryClient({
@@ -30,7 +30,7 @@ export default function App() {
         <AuthorizationProvider>
           <QueryClientProvider client={queryClient}>
             <NavigationContainer>
-              <MainNavigator />
+              <AppNavigator />
             </NavigationContainer>
           </QueryClientProvider>
         </AuthorizationProvider>

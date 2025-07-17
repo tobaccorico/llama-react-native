@@ -10,7 +10,7 @@ import {
 import {useQuery} from '@tanstack/react-query';
 import {defillamaAPI} from '../services/defillamaApi';
 
-export function OverviewScreen() {
+export default function OverviewScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const {data: chainsData, isLoading, refetch} = useQuery({

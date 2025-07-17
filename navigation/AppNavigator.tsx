@@ -5,11 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Import existing Solana scaffold screens
-import {HomeScreen} from '../screens/HomeScreen';
-
-// Import new DefiLlama screens
-import {OverviewScreen} from '../screens/OverviewScreen';
-import {ChainsScreen} from '../screens/ChainsScreen';
+import MainScreen from '../screens/MainScreen';
+import OverviewScreen from '../screens/OverviewScreen';
+import ChainsScreen from '../screens/ChainsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -23,7 +21,7 @@ const WalletStack = () => (
     }}>
     <Stack.Screen 
       name="WalletHome" 
-      component={HomeScreen} 
+      component={MainScreen} 
       options={{title: 'Wallet'}} 
     />
   </Stack.Navigator>

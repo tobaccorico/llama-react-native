@@ -62,7 +62,7 @@ const ChainCard: React.FC<ChainCardProps> = ({chain, onPress}) => (
   </TouchableOpacity>
 );
 
-export function ChainsScreen() {
+export default function ChainsScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'tvl' | 'name' | 'protocols'>('tvl');
 

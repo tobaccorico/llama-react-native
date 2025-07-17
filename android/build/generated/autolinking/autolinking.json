@@ -3,6 +3,30 @@
   "reactNativePath": "/home/rico/Documents/MySolanaDapp/node_modules/react-native",
   "reactNativeVersion": "0.75",
   "dependencies": {
+    "@react-native-masked-view/masked-view": {
+      "root": "/home/rico/Documents/MySolanaDapp/node_modules/@react-native-masked-view/masked-view",
+      "name": "@react-native-masked-view/masked-view",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/home/rico/Documents/MySolanaDapp/node_modules/@react-native-masked-view/masked-view/RNCMaskedView.podspec",
+          "version": "0.3.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/home/rico/Documents/MySolanaDapp/node_modules/@react-native-masked-view/masked-view/android",
+          "packageImportPath": "import org.reactnative.maskedview.RNCMaskedViewPackage;",
+          "packageInstance": "new RNCMaskedViewPackage()",
+          "buildTypes": [],
+          "componentDescriptors": [],
+          "cmakeListsPath": "/home/rico/Documents/MySolanaDapp/node_modules/@react-native-masked-view/masked-view/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
     "@solana-mobile/mobile-wallet-adapter-protocol": {
       "root": "/home/rico/Documents/MySolanaDapp/node_modules/@solana-mobile/mobile-wallet-adapter-protocol",
       "name": "@solana-mobile/mobile-wallet-adapter-protocol",
