@@ -1,32 +1,47 @@
-import {
-  ConnectionProvider,
-  RPC_ENDPOINT,
-} from './components/providers/ConnectionProvider';
-import {clusterApiUrl} from '@solana/web3.js';
+
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
-import {Header} from './components/Header';
+import {NavigationContainer} from '@react-navigation/native';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ConnectionProvider} from './components/ConnectionProvider';
+import {AuthorizationProvider} from './components/AuthorizationProvider';
+import {clusterApiUrl} from '@solana/web3.js';
+import {MainNavigator} from './navigation/AppNavigator';
 
-import MainScreen from './screens/MainScreen';
+// Configure React Query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      cacheTime: 10 * 60 * 1000, // 10 minutes
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: 'always',
+      retry: 2,
+    },
+  },
+});
 
 export default function App() {
   return (
-    <ConnectionProvider
-      config={{commitment: 'processed'}}
-      endpoint={clusterApiUrl(RPC_ENDPOINT)}>
-      <AuthorizationProvider>
-        <SafeAreaView style={styles.shell}>
-          <Header />
-          <MainScreen />
-        </SafeAreaView>
-      </AuthorizationProvider>
-    </ConnectionProvider>
+    <SafeAreaView style={styles.container}>
+      <ConnectionProvider
+        config={{commitment: 'confirmed'}}
+        endpoint={clusterApiUrl('devnet')}>
+        <AuthorizationProvider>
+          <QueryClientProvider client={queryClient}>
+            <NavigationContainer>
+              <MainNavigator />
+            </NavigationContainer>
+          </QueryClientProvider>
+        </AuthorizationProvider>
+      </ConnectionProvider>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  shell: {
-    height: '100%',
+  container: {
+    flex: 1,
+    backgroundColor: '#0A0A0A',
   },
 });
